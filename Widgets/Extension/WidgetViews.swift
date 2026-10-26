@@ -1,0 +1,1 @@
+../../Sources/Pulse/Window/WidgetViews.swift

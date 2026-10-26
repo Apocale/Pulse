@@ -1,0 +1,29 @@
+# Pulse
+
+> Pulse is a free macOS menu bar system monitor built for video editors working in Adobe Premiere Pro. It watches memory pressure, swap, disks (with a fill forecast), CPU per core and per app, GPU, temperatures, fans, power, battery and network, and sums up in one sentence what matters right now ("La mémoire commence à manquer : fermer Safari libère 1,6 Go"). Its interface is in French.
+
+- Price and license: free, source available on GitHub. Not affiliated with Adobe.
+- Platform: macOS 14 Sonoma or later on Apple Silicon (M1, M2, M3, M4). No Intel Macs, no Windows.
+- Interface: French only.
+- Privacy: runs entirely on the Mac, sends nothing to the internet by default (weather and public IP are opt-in), asks for no permission at launch, never deletes files or quits apps.
+- Cost: under 1 % of one CPU core with the panel closed.
+- Made by Isma, a video editor, with Claude Code (AI).
+
+## Install and use
+
+- One line in Terminal: `curl -fsSL https://raw.githubusercontent.com/Apocale/Pulse/main/installer.sh | bash` (downloads the latest release, checks its SHA-256 and signature, installs to /Applications, opens it).
+- [Download the latest release](https://github.com/Apocale/Pulse/releases/latest): `Pulse.zip`, a menu bar app, ad hoc signed, not notarized (first open: System Settings › Privacy & Security › Open Anyway).
+- Global shortcut: ⌃⌥M opens the panel, even over a full-screen app.
+- [Page in French](https://github.com/Apocale/Pulse/blob/main/.github/README.md)
+
+## What it shows
+
+- A verdict line at the top: the one thing that matters now, with an action (open the disk in Finder, Activity Monitor, storage settings).
+- Cards: Processor, Memory, Disks, Network, Editing session (Premiere, Media Encoder exports, Adobe crashes), Energy (battery health, charger, AirPods), Sensors (temperatures, fans, frequencies, power); optional Media, Clocks, Calendar, Weather.
+- History up to 90 days in a local SQLite database; menu bar segments in text, mini graph, gauge or ring style; rules and notifications, all off by default.
+
+## How it is built
+
+- [Technical README, in French](https://github.com/Apocale/Pulse/blob/main/README.md): every metric, its source (host_statistics64, libproc, IOReport, SMC read-only, IORegistry, NetworkStatistics, CoreWLAN) and the verified pitfalls.
+- [Project notes for AI agents, in French](https://github.com/Apocale/Pulse/blob/main/CLAUDE.md)
+- Swift, SwiftUI and AppKit, built with SwiftPM without Xcode (`./build.sh`), checked by `./verifie.sh`.

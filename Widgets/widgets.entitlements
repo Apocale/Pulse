@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  L'EXTENSION de widgets seulement — jamais l'app (règle dure n°1).
+  WidgetKit exige le bac à sable ; l'exception temporaire en lecture seule
+  ouvre le seul dossier où Pulse écrit etat-partage.json. Ni groupe d'apps
+  (qui demanderait un Team ID et, sinon, une autorisation à l'écran), ni
+  écriture.
+-->
+<plist version="1.0">
+<dict>
+    <key>com.apple.security.app-sandbox</key><true/>
+    <key>com.apple.security.temporary-exception.files.home-relative-path.read-only</key>
+    <array>
+        <string>/Library/Application Support/Pulse/</string>
+    </array>
+</dict>
+</plist>

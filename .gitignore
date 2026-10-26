@@ -1,0 +1,11 @@
+# Artefacts de compilation SwiftPM (185 Mio, reconstruits par ./build.sh)
+.build/
+# Bundle assemblé et signé par ./build.sh
+Pulse.app/
+.DS_Store
+
+# Relevés de mesure : un fichier par exécution, non versionnés.
+# La référence du 25/08, elle, est suivie (citée par le README).
+outils/mesure-export-*.csv
+# dSYM de la dernière compilation, à côté du bundle (build.sh, 19-suivis)
+Pulse.app.dSYM/
